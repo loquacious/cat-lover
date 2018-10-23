@@ -1,0 +1,445 @@
+/**
+#89cff0  - light blue
+#ffb6c1  - light pink
+#f88379  - Coral
+/
+
+/*********** Begin Layout Styles ***********/
+body {
+  background-color: #	#ffb6c1 ;
+}
+
+div.container {
+  background-color: #ffb6c1 ;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px; /* disable this line if you want full-width layouts */
+}
+
+header, main, footer {
+  padding: 15px;
+  margin: 15px;
+}
+
+/* phones (base layout is mobile-first) */
+header {
+  align-items: center;
+  background-color: #89cff0;
+  /*border: 3px solid #990000;  disable this line once layout works */
+
+  border-bottom: 5px solid #fcf7f7;
+  border-right: 5px solid #fcf7f7;
+  border-left:  5px solid #fcf7f7;
+  padding-top: 5px;
+  border-top: 5px solid #fcf7f7;
+  display: grid;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "logo webtitle logo2"
+
+
+
+}
+
+main {
+  /*border: 3px solid #009900;  disable this line once layout works */
+  display: grid;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "carousel"
+    "why"
+    "save"
+    "vid"
+    "channel";
+}
+
+footer {
+  /* border: 3px solid #000099; disable this line once layout works */
+  background-color: #89cff0;
+  border-top: 5px solid #f88379;
+  display: grid;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "sorry"
+    "lol"
+    "funcat"
+    "name";
+}
+
+/* tablets and small laptops */
+@media (min-width: 600px) {
+
+  header {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "logo webtitle logo2";
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "carousel carousel"
+      "why save"
+      "channel vid";
+  }
+
+  footer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "sorry sorry"
+      "lol funcat"
+      "name name";
+  }
+
+  #why-intro {
+    grid-column: span 2;
+  }
+
+  #save-intro {
+    grid-column: span 2;
+  }
+
+  #pick {
+    grid-column: span 2;
+  }
+
+  #special{
+    grid-column: span 2;
+  }
+
+  #continued{
+    grid-column: span 2;
+  }
+}
+
+/* desktops */
+@media (min-width: 900px) {
+  header {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "logo webtitle logo2";
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "carousel carousel"
+      "why save"
+      "channel vid";
+  }
+
+  footer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "sorry sorry sorry sorry"
+    "lol lol funcat funcat"
+    "name name name name";
+  }
+}
+
+div {
+  /*border: 1px solid #999999; disable this line once layout works */
+  /*text-align: center; disable this line once layout works */
+  box-sizing: border-box;
+}
+
+main div {
+  /*  min-height: 80px; disable this line once layout works */
+
+}
+
+div#logo {
+  grid-area: logo;
+}
+
+div#webtitle {
+  grid-area: webtitle;
+  text-align: center;
+}
+
+div#logo2 {
+  grid-area: logo2;
+  text-align: right;
+}
+div#carousel {
+  grid-area: carousel;
+  max-width: 1000px;
+  overflow:hidden;
+}
+
+
+div#why {
+   grid-area: why;
+    background-color: #89cff0;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.3s;
+}
+
+div#why:hover {
+  background-color:#f88379;
+  color: #f88379;
+}
+
+div#why:hover:before{
+  background-size: 110%;
+  opacity: .7;
+}
+
+div#why::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .2;
+  z-index: -1;
+  background-image: url("../img/selfie-cat.jpg");
+  background-position: center;
+  background-size: 100% auto;
+  transition: background-size 0.3s, opacity 0.3s, background-color 0.3s;
+}
+
+div#save {
+   grid-area: save;
+    background-color: #89cff0;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.3s;
+}
+
+div#save::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .2;
+  z-index: -1;
+  background-image: url("../img/unicorn-kitty.jpg");
+  background-position: center;
+  background-size: 100% auto;
+  transition: background-size 0.3s, opacity 0.3s, background-color 0.3s;
+
+}
+
+div#save:hover {
+  background-color: #f88379;
+}
+
+div#save:hover::before{
+  background-size: 110%;
+  opacity: .7;
+}
+
+div#vid {
+  grid-area: vid;
+}
+
+div#sorry{
+  grid-area: sorry;
+  text-align: center;
+}
+
+div#lol{
+  grid-area: lol;
+  text-align: center;
+}
+
+div#funcat{
+  grid-area: funcat;
+  text-align: center;
+}
+
+div#name {
+  grid-area: name;
+  font-family: 'Crushed', cursive;
+
+}
+
+
+.inner {
+  border: double #fcf7f7;
+  height: calc(100% - 60px);
+  margin: 30px;
+  padding: 30px;
+}
+
+.close {
+  border: double #fcf7f7;
+  height: calc(100% - 60px);
+  margin: 30px;
+  padding: 30px;
+}
+
+/*********** End Layout Styles ***********/
+
+
+/*********** Begin Content Styles ***********/
+
+/* Headings */
+h1 {
+  color: #fcf7f7;
+  font-size: 50px;
+  font-family: 'Mali', cursive;
+}
+
+h2 {
+  text-align: center;
+  color: #fcf7f7;
+  font-family: 'Mali', cursive;
+
+}
+
+#why h2 {
+  color: #fcf7f7;
+  margin-top: 0;
+  text-align: center;
+  font-family: 'Mali', cursive;
+}
+
+#why p {
+  text-align: center;
+  color: #fcf7f7;
+  font-family: 'Neuton', serif;
+  font-size: 22px;
+}
+#save h2 {
+  color: #F3F2EB;
+  margin-top: 0;
+  text-align: center;
+  font-family: 'Mali', cursive;
+}
+
+#save p {
+  text-align: center;
+  color: #F3F2EB;
+  font-family: 'Neuton', serif;
+  font-size: 22px;
+}
+
+#sorry p {
+  text-align: center;
+  font-family: 'Neuton', serif;
+}
+
+h3 {
+color: #AA0000;
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+/* Paragraphs and lists */
+
+p {
+color: #F3F2EB;
+font-family: 'Neuton', serif;
+}
+p.myb {
+  text-align: center;
+}
+
+}
+
+ol {
+
+}
+
+ul {
+  font-family: 'Neuton', serif;
+  font-size: 20px;
+
+}
+
+li {
+
+}
+
+/* tables */
+
+table {
+
+}
+
+caption {
+
+}
+
+tr {
+
+}
+
+th {
+
+}
+
+td {
+
+}
+
+/* images */
+img {
+max-width: 100%;
+}
+
+/* links */
+
+a:link {
+background-color: #5A5A5A;
+border: 2px solid #BC313A;
+border-radius: 8px;
+font-size: 30px;
+color: #F3F2EB;
+text-decoration: none;
+font-weight: bold;
+font-family: 'Mali', cursive;
+
+}
+
+
+a:visited {
+  background-color: #5A5A5A;
+  border: 2px solid #BC313A;
+  border-radius: 8px;
+  color: #F3F2EB;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+
+}
+
+a:active {
+
+}
+
+img, iframe {
+  max width: 100%;
+}
+
+/* forms */
+
+
+
+/*********** End Content Styles ***********/
